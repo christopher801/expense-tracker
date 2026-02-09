@@ -1,12 +1,18 @@
 import axios from 'axios';
 
-// Create axios instance
+// URL dapre anvironman an
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:10000/api';
+
+console.log('API URL:', API_URL); // Pou debug
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:10000/api',
+  baseURL: API_URL,
   headers: {
     'Content-Type': 'application/json',
   },
 });
+
+// ... rès kòd la rete menm jan
 
 // Add token to requests if it exists
 api.interceptors.request.use(
