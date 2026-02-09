@@ -1,0 +1,24 @@
+{
+  "name": "expense-tracker-backend",
+  "version": "1.0.0",
+  "description": "Expense Tracker API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "init-db": "node -e \"require('./config/initDB')().then(() => process.exit(0)).catch(e => { console.error(e); process.exit(1); })\"",
+    "test-db": "node -e \"const mysql = require('mysql2'); const url = new URL(process.env.DATABASE_URL); const conn = mysql.createConnection({host: url.hostname, user: url.username, password: url.password, port: url.port, ssl: {rejectUnauthorized: false}}); conn.connect(err => { if(err) { console.error('❌ Erè:', err.message); process.exit(1); } console.log('✅ Konekte!'); conn.query('SHOW DATABASES', (err, results) => { if(err) { console.error(err); } else { console.log('📊 Databases:', results.map(r => r.Database)); } conn.end(); }); });\""
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "jsonwebtoken": "^9.0.0",
+    "mysql2": "^3.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}

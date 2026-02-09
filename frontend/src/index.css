@@ -1,0 +1,47 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.income-amount {
+  color: #198754;
+  font-weight: bold;
+}
+
+.expense-amount {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.summary-card {
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.summary-card:hover {
+  transform: translateY(-5px);
+}
+
+.transaction-item {
+  transition: background-color 0.2s;
+}
+
+.transaction-item:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.btn-action {
+  margin: 0 2px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
